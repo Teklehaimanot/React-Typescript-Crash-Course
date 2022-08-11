@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import List from './component/List';
 
-function App() {
+export interface Istate{
+  people:{
+    name: string,
+    age: number,
+    note : string
+  }[]
+}
+const App:React.FC =()=> {
+const [people, setPeople] = useState<Istate["people"]>([
+  {
+    name:"teklehaimanot",
+    age: 25,
+    note: "Software developer"
+  },
+  {
+    name:"Amanuel",
+    age: 24,
+    note: "Mobile Developer"
+  }
+])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <List people = {people}/>
+
     </div>
   );
 }

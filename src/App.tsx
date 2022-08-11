@@ -25,7 +25,7 @@ const [people, setPeople] = useState<Istate["people"]>([
 ])
   return (
     <div className="App">
-      <AddList/>
+      <AddList people = {people} setPeople={setPeople}/>
       <List people = {people}/>
 
     </div>
